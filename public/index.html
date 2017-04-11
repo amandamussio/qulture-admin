@@ -1,15 +1,68 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" ng-app="qulture">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        <title>Alurapic</title>
+        <title>Qulture.rocks Admin</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     </head>
-    <body>
-        <div class="container">
-            <h1 class="text-center">Alurapic</h1>
+
+    <body >
+
+        <header>
+            <div class="brand">
+                <h1>Qulture.Rocks</h1>
+            </div>
+            <nav class="menu-main">
+                
+            </nav>
+        </header>
+
+        <div class="container-fluid" ng-controller="CollaboratorsController">
+
+            <div value="">
+                <h4>Vizualisar por:</h4>
+                <form>
+                    <div class="form-control">
+                        <label class="radio-inline">
+                          <input type="radio" name="view" value="team" ng-model="changeDataView"> Time
+                        </label>
+
+                        <label class="radio-inline">
+                          <input type="radio" name="view" value="tags" ng-model="changeDataView"> Tags
+                        </label>
+
+                        <label class="radio-inline">
+                          <input type="radio" name="view" value="email" ng-model="changeDataView"> Email
+                        </label>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="table-responsive">
+                <table class="table">
+                    <tr collaborator-item 
+                    ng-repeat="collaborator in collaborators"
+                    name="{{collaborator.name}}"
+                    email="{{collaborator.email}}"
+                    photo="{{collaborator.picture_url}}"
+                    manager="{{collaborator.manager}}"
+                    logins="{{collaborator.logins}}"
+                    active="{{collaborator.active}}"
+                    tags={{collaborator.tags}}
+                    visible={{changeDataView}}
+                    /> 
+                </table>
+            </div>   
+
+
         </div> <!-- fim container -->        
     </body>
+
+    <script type="text/javascript" src="js/lib/angular.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/controllers/collaborators-controller.js"></script>
+    <script type="text/javascript" src="js/directives/qulture-directives.js"></script>
 </html>
