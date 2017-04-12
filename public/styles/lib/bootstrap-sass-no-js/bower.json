@@ -1,0 +1,15 @@
+{
+  "name": "bootstrap-sass-no-js",
+  "version": "3.0.3",
+  "homepage": "https://github.com/xna2/bootstrap-sass-no-js",
+  "description": "bootstrap-sass-no-js is a Sass-powered version of Bootstrap, without bundled Javascript.",
+  "main": ["dist/css/bootstrap.css", "dist/fonts/*"],
+  "keywords": [
+    "bootstrap",
+    "sass"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*", "lib", "tasks", "templates", "test", "*.gemspec", "Rakefile", "Gemfile", "node_modules"
+  ]
+}

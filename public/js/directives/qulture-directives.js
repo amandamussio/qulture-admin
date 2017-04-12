@@ -7,11 +7,12 @@ angular.module('qultureDirectives',[])
 	ddo.restrict = "AE";
 
 	ddo.scope = {
-		name:  '@name',
+		name:  '@',
 		email: '@',
-		photo: '@picture_url',
+		picture: '@',
 		manager: '@',
-		logins: '@'
+		logins: '@',
+		status: '@'
 	}
 
 

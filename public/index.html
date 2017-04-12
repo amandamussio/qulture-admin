@@ -4,60 +4,119 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <title>Qulture.rocks Admin</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="styles/css/style.css">
     </head>
 
-    <body >
+    <body>
 
-        <header>
-            <div class="brand">
-                <h1>Qulture.Rocks</h1>
+        <header class="header-main">
+            <div class="row">
+                <div class="brand">
+                    <h1 class="brand-text">Qulture.Rocks</h1>
+                </div>
+                <nav class="menu-main">
+                    
+                </nav>
             </div>
-            <nav class="menu-main">
-                
-            </nav>
         </header>
 
-        <div class="container-fluid" ng-controller="CollaboratorsController">
+        <div class="container" ng-controller="CollaboratorsController">
 
-            <div value="">
-                <h4>Vizualisar por:</h4>
-                <form>
-                    <div class="form-control">
+            <h2 class="title">Configurações</h2>
+
+            <div class="row">
+                <div class="col-md-6">
+
+                     <h4 class="title">Exibir:</h4>
+
+                    <div class="change-theme">
                         <label class="radio-inline">
-                          <input type="radio" name="view" value="team" ng-model="changeDataView"> Time
+                           <input type="radio" name="infos" value="team" ng-model="changeViewInfo"> team
                         </label>
-
                         <label class="radio-inline">
-                          <input type="radio" name="view" value="tags" ng-model="changeDataView"> Tags
+                           <input type="radio" name="infos" value="tags" ng-model="changeViewInfo"> tags
                         </label>
-
                         <label class="radio-inline">
-                          <input type="radio" name="view" value="email" ng-model="changeDataView"> Email
+                           <input type="radio" name="infos" value="email" ng-model="changeViewInfo"> email
+                        </label>
+                        <label class="radio-inline">
+                           <input type="radio" name="infos" value="feedback" ng-model="changeViewInfo"> feedback
                         </label>
                     </div>
-                </form>
+
+                </div>
+                <div class="col-md-6">
+                    <h4 class="title">Modo de visualização</h4>
+
+                    <div class="change-theme">
+                        <label class="radio-inline">
+                        <span></span>
+                           <input type="radio" name="theme" value="default" ng-model="changeTheme"> Default
+                        </label>
+                        <label class="radio-inline">
+                        <span></span>
+                           <input type="radio" name="theme" value="small" ng-model="changeTheme"> Small
+                        </label>
+                        <label class="radio-inline">
+                        <span></span>
+                           <input type="radio" name="theme" value="only-picture" ng-model="changeTheme"> Only Picture
+                        </label>
+                        <label class="radio-inline">
+                        <span></span>
+                           <input type="radio" name="theme" value="only-picture-small" ng-model="changeTheme"> Small Only Picture
+                        </label>
+                    </div>
+                </div>
             </div>
 
 
-            <div class="table-responsive">
-                <table class="table">
-                    <tr collaborator-item 
-                    ng-repeat="collaborator in collaborators"
-                    name="{{collaborator.name}}"
-                    email="{{collaborator.email}}"
-                    photo="{{collaborator.picture_url}}"
-                    manager="{{collaborator.manager}}"
-                    logins="{{collaborator.logins}}"
-                    active="{{collaborator.active}}"
-                    tags={{collaborator.tags}}
-                    visible={{changeDataView}}
-                    /> 
-                </table>
-            </div>   
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+                        <input class="form-control" placeholder="Buscar Colaborador" ng-model="filterCollaborators">
+                    </form>
+                </div>
+            </div>
+            
+            <table class="table-list-collaborators" 
+            ng-class="{'default': changeTheme === 'default', 'small': changeTheme === 'small', 'onlypicture': changeTheme === 'only-picture', 'only-picture-small': changeTheme === 'only-picture-small'}">
 
+                <tr collaborator-item
+                ng-repeat="collaborator in collaborators | filter: filterCollaborators"
+                name="{{collaborator.name}}"
+                email="{{collaborator.email}}"
+                picture="{{collaborator.picture}}"
+                manager="{{collaborator.manager}}"
+                logins="{{collaborator.logins}}"
+                active="{{collaborator.active}}"
+                tags={{collaborator.tags}}
+                status={{collaborator.status}}
+                visible={{changeDataView}}
+                class="collaborator-item-list"
+                changeTheme="changeTheme"
+                /> 
+                <td ng-if="changeTheme === 'default'">
+                    <div ng-if="changeViewInfo === 'team'">
+                        <span ng-repeat="team in collaborator.teams | limitTo: 2 ">
+                            {{team.name}}
+                        </span>
+                    </div>
+                    <div ng-if="changeViewInfo === 'tags'">
+                        <span ng-repeat="tag in collaborator.tags | limitTo: 2 ">
+                            {{tag.name}}
+                        </span>
+                    </div>
+                    <div ng-if="changeViewInfo === 'email'">
+                        <a href="">{{collaborator.email}}</a>
+                    </div>
+                    <div ng-if="changeViewInfo === 'feedback'">
+                        <input type="text" class="form-control" placeholder="digite a mensagem" ng-model="myValue" ng-change="addMessage()">
+                    </div>
+                </td>
+                </tr>
 
+            </table>
+              
         </div> <!-- fim container -->        
     </body>
 

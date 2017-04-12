@@ -1,0 +1,17 @@
+.header-main {
+	.brand {
+		@extend .col-md-3;
+		@extend .bg-primary;
+		min-height: 50px;
+		.brand-text {
+			font-size: 1.5rem;
+			@extend .text-center;
+		}
+
+	}
+	.menu-main {
+		@extend .navbar;
+		@extend .navbar-default;
+		@extend .col-md-9;
+	}
+}

@@ -1,14 +1,21 @@
 <td>
-	<img ng-src="photo" alt={{name}} title={{name}} class="img-responsive img-circle">
+	<div class="col-lg-2 col-md-2 col-xs-6">
+		<img src={{picture}} alt={{name}} title={{name}} class="collaborator-img">
+	</div>
+	<div class="col-lg-10 col-md-10 col-xs-6">
+		<h3 class="collaborator-name" ng-bind="name"></h3>
+		<div ng-if="nome == 'Pedro'"></div>
+		<div class="colaborator-complement" ng-transclude></div>
+	</div>
 </td>
 <td>
-	<h3 ng-bind="name"></h3>
-	<p ng-bind="visible"></p>
-	<!-- <p ng-bind="team"></p> -->
-	<!-- <p ng-bind="email"></p> -->
+	<p ng-bind="manager"></p>
 </td>
-<td ng-bind="manager"></td>
-<td ng-bind="logins"></td>
 <td>
-	<span ng-show="active === true">teste active</span>
+	<p ng-bind="logins"></p>
 </td>
+<td>
+	 <div ng-if='status === "true"'><span class="collaborator-status active-status">Ativo</span></div>
+	 <div ng-if='status === "false"'><span class="collaborator-status inactive-status">Inativo</span></div>
+</td>
+

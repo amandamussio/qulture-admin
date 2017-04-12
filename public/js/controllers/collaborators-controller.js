@@ -5,8 +5,8 @@ angular.module('qulture').controller('CollaboratorsController', function($scope)
 		{
 			name: 'Fred Castro',
 	  		email: 'frederico@qulture.rocks',
-	  		picture_url: "http://placehold.it/60x60",
-	  		active: true,
+	  		picture: 'assets/images/man.jpg',
+	  		status: true,
 	  		logins: 33,
 	  		manager: 'Ricardo',
 	  		tags: [
@@ -29,8 +29,8 @@ angular.module('qulture').controller('CollaboratorsController', function($scope)
 		{
 			name: 'Francisco Mello',
 	  		email: 'francisco@qulture.rocks',
-	  		picture_url: "http://placehold.it/60x60",
-	  		active: true,
+	  		picture: 'assets/images/man.jpg',
+	  		status: false,
 	  		logins: 33,
 	  		manager: 'Ricardo',
 	  		tags: [
@@ -53,7 +53,16 @@ angular.module('qulture').controller('CollaboratorsController', function($scope)
 
 	];
 
-	$scope.changeDataView = 'team';
+	$scope.changeTheme = 'default';
 
-	$scope.filterCollaboratorsStatus = '';
+	$scope.changeViewInfo = 'team';
+
+	$scope.message = [];
+
+	$scope.addMessage = function(message) {
+		$scope.message.push(message);
+	}
+
+	$scope.filterCollaborators = '';
+
 });
