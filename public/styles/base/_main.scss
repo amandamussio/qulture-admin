@@ -16,36 +16,43 @@
 .line-center-default {
   line-height: 3.7;
 }
+
+
 input[type="radio"] {
     display:none;
-}
-input[type="radio"] + label {
+
+  + label {
     font-family:Arial, sans-serif;
     font-size:14px;
     color: white;
-}
-input[type="radio"] + label span {
-    display:inline-block;
-    padding: 10px;
-    margin:-1px 4px 0 0;
-    vertical-align:middle;
-    cursor:pointer;
-    border: 1px solid $gray-lighter;
-}
 
-input[type="radio"] + label span {
-     background-color: white;
-     color: $gray;
-}
+    span {
+        display:inline-block;
+        padding: 10px;
+        margin:-1px 4px 0 0;
+        vertical-align:middle;
+        cursor:pointer;
+        border: 1px solid $gray-lighter;
+        background-color: white;
+        color: $gray;
+        -webkit-transition:background-color 0.4s linear;
+        -o-transition:background-color 0.4s linear;
+        -moz-transition:background-color 0.4s linear;
+        transition:background-color 0.4s linear;
+    }
 
-input[type="radio"]:checked + label span{
-     color: $brand-success
-}
+  }
 
-input[type="radio"] + label span,
-input[type="radio"]:checked + label span {
-  -webkit-transition:background-color 0.4s linear;
-  -o-transition:background-color 0.4s linear;
-  -moz-transition:background-color 0.4s linear;
-  transition:background-color 0.4s linear;
+  &:checked {
+    + label {
+      span{
+        color: $brand-success;
+        -webkit-transition:background-color 0.4s linear;
+        -o-transition:background-color 0.4s linear;
+        -moz-transition:background-color 0.4s linear;
+        transition:background-color 0.4s linear;
+      }
+    }
+  }
+
 }
