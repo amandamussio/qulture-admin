@@ -97,13 +97,11 @@ angular.module('qulture').controller('CollaboratorsController', function($scope)
 	//informação padrão ao carregar a página
 	vm.changeViewInfo = 'team';
 
-	//guarda mensagem digitada
-	 $scope.$watchCollection('collaborators', function () {
-        return vm.message;
-     });
+	vm.message='';
 
 	//adiciona mensagem ao array de feedbacks do usuario;
-	vm.addMessage = function(collaborator) {
+	vm.addMessage = function(collaborator, message) {
+		console.log(message)
 		let index = vm.collaborators.findIndex((c) => c.id === collaborator.id);
 		vm.collaborators[index].feedbacks.push({message: vm.message});
 	}

@@ -54,9 +54,9 @@
                     <!-- form para envio de mensagem de feedback -->
                     <form class="form-inline" ng-if="send">
                         <div class="form-group">
-                            <input type="text" class="form-control input-sm" placeholder="digite a mensagem" ng-model="message">
+                            <input type="text" class="form-control input-sm" placeholder="digite a mensagem" ng-model="collaborator.name">
                         </div>
-                       <button type="button" class="btn btn-sm btn-success" data-ng-click="addMessage()">enviar</button>
+                       <button type="button" class="btn btn-sm btn-success" ng-click="itemClick(collaborator)">enviar</button>
                     </form>
 					<!-- /form para envio de mensagem de feedback -->
 
