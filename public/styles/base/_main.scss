@@ -2,31 +2,44 @@
 	font-weight: 200;
 }
 
+.radio-inline {
+  padding-left: 0;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+.line-center-default {
+  line-height: 3.7;
+}
 input[type="radio"] {
     display:none;
 }
 input[type="radio"] + label {
-    color: $brand-primary;
     font-family:Arial, sans-serif;
     font-size:14px;
+    color: white;
 }
 input[type="radio"] + label span {
     display:inline-block;
-    width:19px;
-    height:19px;
+    padding: 10px;
     margin:-1px 4px 0 0;
     vertical-align:middle;
     cursor:pointer;
-    -moz-border-radius:  50%;
-    border-radius:  50%;
+    border: 1px solid $gray-lighter;
 }
 
 input[type="radio"] + label span {
-     background-color:$brand-primary;
+     background-color: white;
+     color: $gray;
 }
 
 input[type="radio"]:checked + label span{
-     background-color:$brand-success;
+     color: $brand-success
 }
 
 input[type="radio"] + label span,

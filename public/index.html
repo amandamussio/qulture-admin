@@ -9,117 +9,116 @@
 
     <body>
 
+        <!-- header -->
         <header class="header-main">
             <div class="row">
                 <div class="brand">
                     <h1 class="brand-text">Qulture.Rocks</h1>
                 </div>
-                <nav class="menu-main">
-                    
-                </nav>
+                <nav class="menu-main"></nav>
             </div>
         </header>
+        <!-- /header -->
 
-        <div class="container" ng-controller="CollaboratorsController">
+        <!-- container e controller CollaboratorsController -->
+        <div class="container" ng-controller="CollaboratorsController as vm">
 
-            <h2 class="title">Configurações</h2>
+            <h2 class="title">Colaboradores</h2>
 
+            <!-- configurações -->
             <div class="row">
+
                 <div class="col-md-6">
 
                      <h4 class="title">Exibir:</h4>
 
                     <div class="change-theme">
-                        <label class="radio-inline">
-                           <input type="radio" name="infos" value="team" ng-model="changeViewInfo"> team
-                        </label>
-                        <label class="radio-inline">
-                           <input type="radio" name="infos" value="tags" ng-model="changeViewInfo"> tags
-                        </label>
-                        <label class="radio-inline">
-                           <input type="radio" name="infos" value="email" ng-model="changeViewInfo"> email
-                        </label>
-                        <label class="radio-inline">
-                           <input type="radio" name="infos" value="feedback" ng-model="changeViewInfo"> feedback
-                        </label>
+                        <input type="radio" id="team" name="infos" value="team" ng-model="vm.changeViewInfo">
+                        <label for="team" class="radio-inline"><span class="icon-users"></span></label>
+
+                        <input type="radio" id="tags" name="infos" value="tags" ng-model="vm.changeViewInfo"> 
+                        <label for="tags" class="radio-inline"><span class="icon-tags"></span></label>
+
+                        <input type="radio" id="email" name="infos" value="email" ng-model="vm.changeViewInfo">
+                        <label for="email" class="radio-inline"><span class="icon-mail-alt"></span></label>
+
+                       
+                        <input type="radio" id="feedback" name="infos" value="feedback" ng-model="vm.changeViewInfo"> 
+                        <label for="feedback" class="radio-inline"><span class="icon-chat"></span></label>
                     </div>
 
                 </div>
+
                 <div class="col-md-6">
                     <h4 class="title">Modo de visualização</h4>
 
                     <div class="change-theme">
-                        <label class="radio-inline">
-                        <span></span>
-                           <input type="radio" name="theme" value="default" ng-model="changeTheme"> Default
+                       
+                        <input type="radio" id="default" name="theme" value="default" ng-model="vm.changeTheme"> 
+                        <label for="default" class="radio-inline">
+                            <span class="icon-th-list"></span> 
                         </label>
-                        <label class="radio-inline">
-                        <span></span>
-                           <input type="radio" name="theme" value="small" ng-model="changeTheme"> Small
+
+                        <input type="radio" id="small" name="theme" value="small" ng-model="vm.changeTheme"> 
+                        <label for="small" class="radio-inline">
+                            <span class="icon-list-1"></span> 
                         </label>
-                        <label class="radio-inline">
-                        <span></span>
-                           <input type="radio" name="theme" value="only-picture" ng-model="changeTheme"> Only Picture
+                       
+                        <input type="radio" id="only-picture" name="theme" value="only-picture" ng-model="vm.changeTheme"> 
+                        <label for="only-picture" class="radio-inline">
+                            <span class="icon-camera"></span> 
                         </label>
-                        <label class="radio-inline">
-                        <span></span>
-                           <input type="radio" name="theme" value="only-picture-small" ng-model="changeTheme"> Small Only Picture
+                        
+                        <input type="radio" id="only-picture-small" name="theme" value="only-picture-small" ng-model="vm.changeTheme"> 
+                        <label for="only-picture-small" class="radio-inline">
+                            <span class="icon-user"></span>
                         </label>
+                        
                     </div>
                 </div>
             </div>
+            <!-- /configurações -->
 
-
-            <div class="row">
-                <div class="col-md-12">
-                    <form>
-                        <input class="form-control" placeholder="Buscar Colaborador" ng-model="filterCollaborators">
-                    </form>
-                </div>
+            <!-- filtro de busca -->
+            <div class="search">
+                <form class="col-md-12">
+                    <input class="form-control" placeholder="Buscar Colaborador" ng-model="filterCollaborators">
+                </form>
             </div>
+            <!-- /filtro de busca -->
             
-            <table class="table-list-collaborators" 
-            ng-class="{'default': changeTheme === 'default', 'small': changeTheme === 'small', 'onlypicture': changeTheme === 'only-picture', 'only-picture-small': changeTheme === 'only-picture-small'}">
+            <!-- sessão colaboradores -->
+            <section class="collaborators" ng-class="{'default': vm.changeTheme === 'default', 'small': vm.changeTheme === 'small', 'only-picture': vm.changeTheme === 'only-picture', 'only-picture-small': vm.changeTheme === 'only-picture-small'}">
 
-                <tr collaborator-item
-                ng-repeat="collaborator in collaborators | filter: filterCollaborators"
+                <!-- diretiva collaborador-item -->
+                <collaborator-item
+                ng-repeat="collaborator in vm.collaborators | filter: filterCollaborators"
                 name="{{collaborator.name}}"
                 email="{{collaborator.email}}"
                 picture="{{collaborator.picture}}"
                 manager="{{collaborator.manager}}"
                 logins="{{collaborator.logins}}"
                 active="{{collaborator.active}}"
-                tags={{collaborator.tags}}
+                teams="collaborator.teams"
+                tags="collaborator.tags"
+                feedbacks="collaborator.feedbacks"
                 status={{collaborator.status}}
                 visible={{changeDataView}}
-                class="collaborator-item-list"
-                changeTheme="changeTheme"
-                /> 
-                <td ng-if="changeTheme === 'default'">
-                    <div ng-if="changeViewInfo === 'team'">
-                        <span ng-repeat="team in collaborator.teams | limitTo: 2 ">
-                            {{team.name}}
-                        </span>
-                    </div>
-                    <div ng-if="changeViewInfo === 'tags'">
-                        <span ng-repeat="tag in collaborator.tags | limitTo: 2 ">
-                            {{tag.name}}
-                        </span>
-                    </div>
-                    <div ng-if="changeViewInfo === 'email'">
-                        <a href="">{{collaborator.email}}</a>
-                    </div>
-                    <div ng-if="changeViewInfo === 'feedback'">
-                        <input type="text" class="form-control" placeholder="digite a mensagem" ng-model="myValue" ng-change="addMessage()">
-                    </div>
-                </td>
-                </tr>
-
-            </table>
+                class="collaborator-item"
+                theme="vm.changeTheme"
+                view="vm.changeViewInfo"
+                />
+                <!-- /diretiva collaborador-item -->
+                
+            </section>
+            <!-- /sessão colaboradores -->
               
-        </div> <!-- fim container -->        
+        </div> 
+        <!-- /container -->
     </body>
+    <!-- /body -->
 
+    <!-- SCRIPTS -->
     <script type="text/javascript" src="js/lib/angular.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/controllers/collaborators-controller.js"></script>

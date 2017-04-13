@@ -1,0 +1,41 @@
+.collaborators {
+	.collaborator-item {	
+		box-shadow: inset 0px 0px 113px -37px rgba(0,0,0,0.14);
+		border-bottom: 1px solid $gray-lighter;
+		display: block;
+	}
+	.collaborator-name {
+		@extend .text-success;
+		@extend .mt-10;
+		margin-bottom: 0;	
+		font-weight: lighter;
+	}
+	.collaborator-img-container {
+		float: left;
+		padding-left: 15px;
+		padding-right: 10px;
+		.collaborator-img {
+			@extend .img-responsive;
+			@extend .img-circle;
+		}
+	}
+	.collaborator-info-container {
+		float: left;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.collaborator-status {
+		@extend .mt-10;
+		&.active-status {
+			@extend .text-success;
+		}
+
+		&.inactive-status {
+			@extend .text-danger;
+		}
+	}
+	
+	@media(max-width: 768px) {
+		
+	}
+}

@@ -3,8 +3,13 @@
 		@extend .col-md-3;
 		@extend .bg-primary;
 		min-height: 50px;
+
 		.brand-text {
-			font-size: 1.5rem;
+			font-size: 2rem;
+		    text-transform: uppercase;
+		    font-weight: 100;
+		    margin: 0;
+		    line-height: 3.4;
 			@extend .text-center;
 		}
 

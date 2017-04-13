@@ -1,15 +1,23 @@
-.table-list-collaborators {
+.collaborators {
 	&.default {
-		.collaborator-item-list {
-			td {
-				padding-top: 20px;
-				padding-bottom: 20px;
-			}
+		.collaborator-item {
+			padding-top: 20px;
+			padding-bottom: 20px;
 		}
-		.colaborator-complement {
-			font-weight: lighter;
+		.collaborator-complement {
+			font-weight: 200;
 			font-size: $font-size-base - 2px;
 			color: $gray-light;
+			margin-top: 5px;
+			a {
+				color: $gray-light;
+			}
+		}
+		.collaborator-manager {
+			@extend .line-center-default;
+		}
+		.collaborator-login {
+			@extend .line-center-default;
 		}
 		.collaborator-status {
 			display: inline-block;
@@ -40,12 +48,10 @@
 		}
 	}
 	&.small,
-	&.only-picture {
-		.collaborator-item-list {
-			td {
-				padding-top: 10px;
-				padding-bottom: 10px;
-			}
+	&.only-picture-small {
+		.collaborator-item {
+			padding-top: 10px;
+			padding-bottom: 10px;
 		}
 		.collaborator-img {
 			width: 40px;
@@ -55,11 +61,25 @@
 		.collaborator-name {
 			font-size: $font-size-base + 3px;
 		}
+		.collaborator-manager {
+			@extend .mt-10;
+		}
+		.collaborator-login {
+			@extend .mt-10;
+		}
 	}
 	&.only-picture {
-		
+		.collaborator-item {
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+		.collaborator-img {
+			@extend .center-block;
+		}
 	}
 	&.only-picture-small {
-	
+		.collaborator-img {
+			@extend .center-block;
+		}
 	}
 }

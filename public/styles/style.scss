@@ -16,11 +16,11 @@
 @import "lib/bootstrap-sass-no-js/vendor/assets/stylesheets/bootstrap/buttons";
 
 // // Components
-@import "lib/bootstrap-sass-no-js/vendor/assets/stylesheets/bootstrap/component-animations";
-@import "lib/bootstrap-sass-no-js/vendor/assets/stylesheets/bootstrap/glyphicons";
+// @import "lib/bootstrap-sass-no-js/vendor/assets/stylesheets/bootstrap/component-animations";
+// @import "lib/bootstrap-sass-no-js/vendor/assets/stylesheets/bootstrap/glyphicons";
 @import "lib/bootstrap-sass-no-js/vendor/assets/stylesheets/bootstrap/dropdowns";
 // @import "lib/bootstrap-sass-no-js/vendor/assets/stylesheets/bootstrap/button-groups";
-// @import "lib/bootstrap-sass-no-js/vendor/assets/stylesheets/bootstrap/input-groups";
+@import "lib/bootstrap-sass-no-js/vendor/assets/stylesheets/bootstrap/input-groups";
 @import "lib/bootstrap-sass-no-js/vendor/assets/stylesheets/bootstrap/navs";
 @import "lib/bootstrap-sass-no-js/vendor/assets/stylesheets/bootstrap/navbar";
 // @import "lib/bootstrap-sass-no-js/vendor/assets/stylesheets/bootstrap/breadcrumbs";
@@ -40,14 +40,16 @@
 
 // // Utility classes
 @import "lib/bootstrap-sass-no-js/vendor/assets/stylesheets/bootstrap/utilities";
-@import "lib/bootstrap-sass-no-js/vendor/assets/stylesheets/bootstrap/responsive-utilities";
+// @import "lib/bootstrap-sass-no-js/vendor/assets/stylesheets/bootstrap/responsive-utilities";
 
 //base
 @import "base/main";
 @import "base/header";
+@import "base/icons";
 
 // layout
-@import "layout/table-list-collaborators";
+@import "layout/collaborators";
+@import "layout/search";
 
 //theme
-@import "theme/table-list-collaborators";
+@import "theme/collaborators";

@@ -12,7 +12,13 @@ angular.module('qultureDirectives',[])
 		picture: '@',
 		manager: '@',
 		logins: '@',
-		status: '@'
+		status: '@',
+		tags: '=',
+		teams: '=',
+		feedbacks: '=',
+		theme: '=',
+		view: '=',
+
 	}
 
 
