@@ -1,5 +1,5 @@
 .collaborators {
-	.collaborator-item {	
+	.collaborator-item {
 		box-shadow: inset 0px 0px 113px -37px rgba(0,0,0,0.14);
 		border-bottom: 1px solid $gray-lighter;
 		display: block;
@@ -7,16 +7,20 @@
 	.collaborator-name {
 		@extend .text-success;
 		@extend .mt-10;
-		margin-bottom: 0;	
+		margin-bottom: 0;
 		font-weight: lighter;
 	}
 	.collaborator-img-container {
-		float: left;
+		@media(min-width: 768px){ float: left;}
 		padding-left: 15px;
 		padding-right: 10px;
 		.collaborator-img {
 			@extend .img-responsive;
 			@extend .img-circle;
+			@media(max-width: 768px){
+				display: block;
+				margin: 0 auto;
+			}
 		}
 	}
 	.collaborator-info-container {
@@ -34,8 +38,8 @@
 			@extend .text-danger;
 		}
 	}
-	
+
 	@media(max-width: 768px) {
-		
+
 	}
 }
