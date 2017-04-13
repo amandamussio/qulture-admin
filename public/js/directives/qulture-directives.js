@@ -18,6 +18,8 @@ angular.module('qultureDirectives',[])
 		feedbacks: '=',
 		theme: '=',
 		view: '=',
+		addMessage: '=',
+		message: '='
 
 	}
 

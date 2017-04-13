@@ -47,16 +47,16 @@
 
 					<!-- enviar mensagem -->
                     <div>
-                        <a href="" ng-click="teste = true"><span class="icon-chat"></span> enviar mensagem</a>
+                        <a href="" ng-click="send = true"><span class="icon-chat"></span> enviar mensagem</a>
                     </div>
                     <!-- /enviar mensagem -->
                     
                     <!-- form para envio de mensagem de feedback -->
-                    <form class="form-inline" ng-if="teste">
+                    <form class="form-inline" ng-if="send">
                         <div class="form-group">
-                            <input type="text" class="form-control input-sm" placeholder="digite a mensagem" ng-model="vm.message">
+                            <input type="text" class="form-control input-sm" placeholder="digite a mensagem" ng-model="message">
                         </div>
-                       <button type="button" class="btn btn-sm btn-success" ng-click="vm.addMessage(collaborator)">enviar</button>
+                       <button type="button" class="btn btn-sm btn-success" ng-click="addMessage()">enviar</button>
                     </form>
 					<!-- /form para envio de mensagem de feedback -->
 
