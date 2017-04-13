@@ -33,17 +33,21 @@
                      <h4 class="title">Exibir:</h4>
 
                     <div class="change-theme">
+
+                        <input type="radio" id="default" name="infos" value="default" ng-model="vm.changeViewInfo">
+                        <label for="default" class="radio-inline"><span class=""></span></label>
+
                         <input type="radio" id="team" name="infos" value="team" ng-model="vm.changeViewInfo">
                         <label for="team" class="radio-inline"><span class="icon-users"></span></label>
 
-                        <input type="radio" id="tags" name="infos" value="tags" ng-model="vm.changeViewInfo"> 
+                        <input type="radio" id="tags" name="infos" value="tags" ng-model="vm.changeViewInfo">
                         <label for="tags" class="radio-inline"><span class="icon-tags"></span></label>
 
                         <input type="radio" id="email" name="infos" value="email" ng-model="vm.changeViewInfo">
                         <label for="email" class="radio-inline"><span class="icon-mail-alt"></span></label>
 
-                       
-                        <input type="radio" id="feedback" name="infos" value="feedback" ng-model="vm.changeViewInfo"> 
+
+                        <input type="radio" id="feedback" name="infos" value="feedback" ng-model="vm.changeViewInfo">
                         <label for="feedback" class="radio-inline"><span class="icon-chat"></span></label>
                     </div>
 
@@ -53,27 +57,27 @@
                     <h4 class="title">Modo de visualização</h4>
 
                     <div class="change-theme">
-                       
-                        <input type="radio" id="default" name="theme" value="default" ng-model="vm.changeTheme"> 
+
+                        <input type="radio" id="default" name="theme" value="default" ng-model="vm.changeTheme">
                         <label for="default" class="radio-inline">
-                            <span class="icon-th-list"></span> 
+                            <span class="icon-th-list"></span>
                         </label>
 
-                        <input type="radio" id="small" name="theme" value="small" ng-model="vm.changeTheme"> 
+                        <input type="radio" id="small" name="theme" value="small" ng-model="vm.changeTheme">
                         <label for="small" class="radio-inline">
-                            <span class="icon-list-1"></span> 
+                            <span class="icon-list-1"></span>
                         </label>
-                       
-                        <input type="radio" id="only-picture" name="theme" value="only-picture" ng-model="vm.changeTheme"> 
+
+                        <input type="radio" id="only-picture" name="theme" value="only-picture" ng-model="vm.changeTheme">
                         <label for="only-picture" class="radio-inline">
-                            <span class="icon-camera"></span> 
+                            <span class="icon-camera"></span>
                         </label>
-                        
-                        <input type="radio" id="only-picture-small" name="theme" value="only-picture-small" ng-model="vm.changeTheme"> 
+
+                        <input type="radio" id="only-picture-small" name="theme" value="only-picture-small" ng-model="vm.changeTheme">
                         <label for="only-picture-small" class="radio-inline">
                             <span class="icon-user"></span>
                         </label>
-                        
+
                     </div>
                 </div>
             </div>
@@ -86,7 +90,7 @@
                 </form>
             </div>
             <!-- /filtro de busca -->
-            
+
             <!-- sessão colaboradores -->
             <section class="collaborators" ng-class="{'default': vm.changeTheme === 'default', 'small': vm.changeTheme === 'small', 'only-picture': vm.changeTheme === 'only-picture', 'only-picture-small': vm.changeTheme === 'only-picture-small'}">
 
@@ -114,8 +118,8 @@
 
             </section>
             <!-- /sessão colaboradores -->
-              
-        </div> 
+
+        </div>
         <!-- /container -->
     </body>
     <!-- /body -->

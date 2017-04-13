@@ -17,7 +17,7 @@ angular.module('qulture').controller('CollaboratorsController', function($scope)
 				{
 				   name: 'Engenharia'
 				},
-				{ 
+				{
 				   name: 'Marketing'
 				},
 				{
@@ -40,7 +40,7 @@ angular.module('qulture').controller('CollaboratorsController', function($scope)
 				{
 				   name: 'Engenharia'
 				},
-				{ 
+				{
 				   name: 'Marketing'
 				},
 				{
@@ -70,7 +70,7 @@ angular.module('qulture').controller('CollaboratorsController', function($scope)
 				{
 				   name: 'Engenharia'
 				},
-				{ 
+				{
 				   name: 'Marketing'
 				},
 				{
@@ -95,7 +95,7 @@ angular.module('qulture').controller('CollaboratorsController', function($scope)
 	vm.changeTheme = 'default';
 
 	//informação padrão ao carregar a página
-	vm.changeViewInfo = 'team';
+	vm.changeViewInfo = 'default';
 
 	vm.message='';
 
@@ -110,4 +110,3 @@ angular.module('qulture').controller('CollaboratorsController', function($scope)
 	vm.filterCollaborators = '';
 
 });
-
