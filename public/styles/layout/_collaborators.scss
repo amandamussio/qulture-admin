@@ -3,12 +3,16 @@
 		box-shadow: inset 0px 0px 113px -37px rgba(0,0,0,0.14);
 		border-bottom: 1px solid $gray-lighter;
 		display: block;
+		@media(max-width: 768px) {
+			text-align:center;
+		}
 	}
 	.collaborator-name {
 		@extend .text-success;
 		@extend .mt-10;
 		margin-bottom: 0;
 		font-weight: lighter;
+
 	}
 	.collaborator-img-container {
 		@media(min-width: 768px){ float: left;}
@@ -24,7 +28,10 @@
 		}
 	}
 	.collaborator-info-container {
-		float: left;
+		@media(max-width: 768px) {
+			margin-bottom: 15px;
+		}
+		@media(min-width: 768px){float: left;}
 		padding-left: 15px;
 		padding-right: 15px;
 	}

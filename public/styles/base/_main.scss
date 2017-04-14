@@ -14,44 +14,11 @@
   margin-top: 20px;
 }
 .line-center-default {
-  line-height: 3.7;
+  @media(max-width: 768px) {
+    line-height: 2;
+  }
+  @media(min-width: 768px) {
+    line-height: 3.7;
+  }
 }
 
-input[type="radio"] {
-    display:none;
-
-  + label {
-    font-family:Arial, sans-serif;
-    font-size:14px;
-    color: white;
-
-    span {
-        display:inline-block;
-        padding: 10px;
-        margin:-1px 4px 0 0;
-        vertical-align:middle;
-        cursor:pointer;
-        border: 1px solid $gray-lighter;
-        background-color: white;
-        color: $gray;
-        -webkit-transition:background-color 0.4s linear;
-        -o-transition:background-color 0.4s linear;
-        -moz-transition:background-color 0.4s linear;
-        transition:background-color 0.4s linear;
-    }
-
-  }
-
-  &:checked {
-    + label {
-      span{
-        color: $brand-success;
-        -webkit-transition:background-color 0.4s linear;
-        -o-transition:background-color 0.4s linear;
-        -moz-transition:background-color 0.4s linear;
-        transition:background-color 0.4s linear;
-      }
-    }
-  }
-
-}

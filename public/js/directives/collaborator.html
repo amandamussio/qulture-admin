@@ -1,6 +1,6 @@
 <div class="row">
 	<!-- foto e informações -->
-	<div class="col-md-6 clearfix">
+	<div class="col-md-5 col-sm-6 clearfix">
 		
 		<!-- imagem collaborador -->
 		<div class="collaborator-img-container">
@@ -18,21 +18,48 @@
 			<!-- complementos -->
 			<div class="collaborator-complement" ng-if="theme === 'default'">
 
+				<!-- todas as informações por prioridade -->
+				<div ng-if="view === 'all'">
+					
+					<div ng-if="teams.length > 0">
+                    	<span ng-repeat="team in teams | limitTo: 2 ">{{team.name}}{{$last ? '' : ', '}}</span>
+                    </div>
+
+					<div ng-if="teams.length === 0">
+                    	<span ng-repeat="tag in tags | limitTo: 2 ">{{tag.name}}{{$last ? '' : ', '}}</span>  
+                    </div>
+
+					<div ng-if="teams.length === 0 && tags.length === 0">
+                    	<a href="" ng-bind="email"></a>
+                    </div>
+
+					<div ng-if="teams.length === 0 && tags.length === 0 && email === ''">
+	                    <div ng-if="feedbacks.length > 0" ng-repeat="feedback in [feedbacks[feedbacks.length - 1]] track by $index">
+	                        <p>{{feedback.message}}</p>
+	                    </div>
+                    </div>
+
+                </div>
+                <!-- /todas as informações por prioridade -->
+
 				<!-- times -->
 				<div ng-if="view === 'team'">
                     <span ng-repeat="team in teams | limitTo: 2 ">{{team.name}}{{$last ? '' : ', '}}</span>
+                    <a href="" ng-if="teams.length === 0"><span class="icon-users"></span> inserir time</a>
                 </div>
                 <!-- /times -->
 
 				<!-- tags -->
                 <div ng-if="view === 'tags'">
                 	<span ng-repeat="tag in tags | limitTo: 2 ">{{tag.name}}{{$last ? '' : ', '}}</span>  
+                	<a href="" ng-if="tags.length === 0"><span class="icon-tags"></span> inserir tags</a>
                 </div>
                 <!-- /tags -->
 
 				<!-- email -->
                 <div ng-if="view === 'email' || (teams.length === 0 && tags.length === 0)">
                     <a href="" ng-bind="email"></a>
+                    <a href="" ng-if="email === ''"><span class="icon-mail-alt"></span> inserir email</a>
                 </div>
                 <!-- /email -->
 
@@ -52,12 +79,7 @@
                     <!-- /enviar mensagem -->
                     
                     <!-- form para envio de mensagem de feedback -->
-                    <form class="form-inline" ng-if="send">
-                        <div class="form-group">
-                            <input type="text" class="form-control input-sm" placeholder="digite a mensagem" ng-model="collaborator.name">
-                        </div>
-                       <button type="button" class="btn btn-sm btn-success" ng-click="itemClick(collaborator)">enviar</button>
-                    </form>
+                    <div ng-transclude ng-if="send"></div>
 					<!-- /form para envio de mensagem de feedback -->
 
                 </div>
@@ -72,19 +94,19 @@
 	<!-- /foto e informações -->
 
 	<!-- manager -->
-	<div class="col-md-2" ng-if="theme === 'default' || theme === 'small'">
+	<div class="col-md-2 col-sm-4" ng-if="theme === 'default' || theme === 'small'">
 		<p ng-bind="manager" class="collaborator-manager"></p>
 	</div>
 	<!-- /manager -->
 
 	<!-- logins -->
-	<div class="col-md-1" ng-if="theme === 'default' || theme === 'small'">
+	<div class="col-md-2 col-sm-2" ng-if="theme === 'default' || theme === 'small'">
 		<p ng-bind="logins" class="collaborator-login"></p>
 	</div>
 	<!-- /logins -->
 
 	<!-- status -->
-	<div class="col-md-3" ng-if="theme === 'default' || theme === 'small'">
+	<div class="col-md-3 hidden-sm" ng-if="theme === 'default' || theme === 'small'">
 		 <div ng-if='status === "true"' class="collaborator-status">
 		 	<span class="collaborator-status active-status">Ativo</span>
 		 </div>

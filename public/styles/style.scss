@@ -40,7 +40,7 @@
 
 // // Utility classes
 @import "lib/bootstrap-sass-no-js/vendor/assets/stylesheets/bootstrap/utilities";
-// @import "lib/bootstrap-sass-no-js/vendor/assets/stylesheets/bootstrap/responsive-utilities";
+@import "lib/bootstrap-sass-no-js/vendor/assets/stylesheets/bootstrap/responsive-utilities";
 
 //base
 @import "base/main";
@@ -50,6 +50,7 @@
 // layout
 @import "layout/collaborators";
 @import "layout/search";
+@import "layout/change-theme";
 
 //theme
 @import "theme/collaborators";

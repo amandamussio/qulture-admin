@@ -18,11 +18,9 @@ angular.module('qultureDirectives',[])
 		feedbacks: '=',
 		theme: '=',
 		view: '=',
-		'itemClick': '&',
-		message: '='
+		messageWrite: '=',
 
 	}
-
 
 	ddo.transclude = true; //mostra elementos filhos no html que nao foram inclusos no template
 
@@ -31,3 +29,4 @@ angular.module('qultureDirectives',[])
 
 	return ddo;
 })
+

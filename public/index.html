@@ -34,21 +34,21 @@
 
                     <div class="change-theme">
 
-                        <input type="radio" id="default" name="infos" value="default" ng-model="vm.changeViewInfo">
-                        <label for="default" class="radio-inline"><span class=""></span></label>
+                        <input type="radio" id="all" name="infos" value="all" ng-model="vm.changeViewInfo">
+                        <label for="all" class="radio-inline"><span class="icon-user-circle-o"></span> <p>All</p></label>
 
                         <input type="radio" id="team" name="infos" value="team" ng-model="vm.changeViewInfo">
-                        <label for="team" class="radio-inline"><span class="icon-users"></span></label>
+                        <label for="team" class="radio-inline"><span class="icon-users"></span> <p>Team</p> </label>
 
                         <input type="radio" id="tags" name="infos" value="tags" ng-model="vm.changeViewInfo">
-                        <label for="tags" class="radio-inline"><span class="icon-tags"></span></label>
+                        <label for="tags" class="radio-inline"><span class="icon-tags"></span> <p>Tags</p></label>
 
                         <input type="radio" id="email" name="infos" value="email" ng-model="vm.changeViewInfo">
-                        <label for="email" class="radio-inline"><span class="icon-mail-alt"></span></label>
+                        <label for="email" class="radio-inline"><span class="icon-mail-alt"></span> <p>Email</p></label>
 
 
                         <input type="radio" id="feedback" name="infos" value="feedback" ng-model="vm.changeViewInfo">
-                        <label for="feedback" class="radio-inline"><span class="icon-chat"></span></label>
+                        <label for="feedback" class="radio-inline"><span class="icon-chat"></span> <p>Message</p></label>
                     </div>
 
                 </div>
@@ -60,22 +60,22 @@
 
                         <input type="radio" id="default" name="theme" value="default" ng-model="vm.changeTheme">
                         <label for="default" class="radio-inline">
-                            <span class="icon-th-list"></span>
+                            <span class="icon-th-list"></span> <p>Default</p>
                         </label>
 
                         <input type="radio" id="small" name="theme" value="small" ng-model="vm.changeTheme">
                         <label for="small" class="radio-inline">
-                            <span class="icon-list-1"></span>
+                            <span class="icon-list-1"></span> <p>Small</p>
                         </label>
 
                         <input type="radio" id="only-picture" name="theme" value="only-picture" ng-model="vm.changeTheme">
                         <label for="only-picture" class="radio-inline">
-                            <span class="icon-camera"></span>
+                            <span class="icon-camera"></span> <p>Only</p>
                         </label>
 
                         <input type="radio" id="only-picture-small" name="theme" value="only-picture-small" ng-model="vm.changeTheme">
                         <label for="only-picture-small" class="radio-inline">
-                            <span class="icon-user"></span>
+                            <span class="icon-user"></span> <p>Only Small</p>
                         </label>
 
                     </div>
@@ -107,14 +107,21 @@
                 tags="collaborator.tags"
                 feedbacks="collaborator.feedbacks"
                 status={{collaborator.status}}
-                visible={{changeDataView}}
                 class="collaborator-item"
                 theme="vm.changeTheme"
                 view="vm.changeViewInfo"
-                item-click="vm.addMessage(collaborator,teste)"
-                message="vm.message"
-                />
+                >
                 <!-- /diretiva collaborador-item -->
+
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <input type="text" class="form-control input-sm" placeholder="digite a mensagem" name="collaborator.id" aria-describedby="inputDescription1" ng-model="vm.message">
+                        </div>
+                        
+                       <button type="button" class="btn btn-sm btn-success" ng-click="vm.addMessage(collaborator)">enviar</button>
+                    </form>
+
+                </collaborator-item>    
 
             </section>
             <!-- /sessão colaboradores -->
